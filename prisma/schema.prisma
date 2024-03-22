@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id          Int       @id(map: "untitled_table_pkey") @default(autoincrement())
+  employeeID  String?   @unique(map: "untitled_table_employeeID_key")
+  name        String?
+  status      String?
+  location    String?
+  joiningDate DateTime? @db.Date
+  birthDate   DateTime? @db.Date
+  salary      Int?
+}
