@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Employee {
-  id          Int       @id(map: "untitled_table_pkey") @default(autoincrement())
-  employeeID  String?   @unique(map: "untitled_table_employeeID_key")
+  id          Int       @id @default(autoincrement()) @db.SmallInt
+  employeeID  String    @unique
   name        String?
   status      String?
   location    String?
-  joiningDate DateTime? @db.Date
+  salary      Int?      @db.SmallInt
   birthDate   DateTime? @db.Date
-  salary      Int?
+  joiningDate DateTime? @db.Date
 }
